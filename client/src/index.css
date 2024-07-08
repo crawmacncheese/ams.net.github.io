@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* 
+* {
+  font-size: 20px;
+}  */
+
+/* h1 {
+  font-size:25px;
+  font-weight: bold;
+} */
+
+/* 0627 */
+.small-size{
+  font-size: 10px;
+}
+
+.tools-style{
+  width: 80%;
+  margin: 30px auto 0;
+}

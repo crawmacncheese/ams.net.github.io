@@ -1,0 +1,117 @@
+.inside {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.covered {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.covering {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+#outside {
+  width:800px;
+  height: 800px;
+  margin: 40px 0px;
+  border: 2px solid blue;
+}
+
+.app {
+
+  margin: 20px 60px
+} 
+
+#move1 {
+  position: absolute;
+  pointer-events: nones;
+}
+#move2 {
+  position: absolute;
+  pointer-events: nones;
+}
+
+.menuflex {
+  display: flex;
+  flex-direction: row;
+}
+
+.overallflex {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.menu {
+  width: 400px; 
+  height: 100px; 
+  overflow: auto;
+}
+
+#select {
+  width: 100%;
+  height: 100%;
+}
+
+#selectglobal {
+  width: 100%;
+  height: 100%;
+}
+
+h1 {
+  z-index: 1;
+}
+
+#canvascontainer {
+  width: 800px;
+  height: 800px;
+  margin-top: 20px;
+  position: relative;
+  text-align: center;
+}
+
+#globallabel {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.dropdowncontainer {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown {
+  right: 0; /* Align the dropdown to the end of the container */
+  left: auto;
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.dropdown li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown li:hover {
+  background-color: #f0f0f0;
+}

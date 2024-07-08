@@ -1,0 +1,87 @@
+ * Ignoring a call to 'app.run()' that would block the current 'flask' CLI command.
+   Only call 'app.run()' in an 'if __name__ == "__main__"' guard.
+ * Debug mode: off
+0 / 1: components/ca3aa4f9-b751-463c-a166-41f994f8126b/testimg.png
+{'x1': 214, 'y1': 192, 'x2': 304, 'y2': 296, 'id': 1, 'label': 'pmos_0_0'}
+page 0
+created N6 (151, 517) for (101, 427, 205, 517)
+created N7 (242, 304) for (192, 214, 296, 304)
+created N8 (669, 147) for (619, 147, 723, 237)
+created N9 (672, 147) for (619, 147, 723, 237)
+created N10 (366, 822) for (314, 732, 418, 822)
+created N11 (364, 822) for (314, 732, 418, 822)
+created N12 (364, 361) for (314, 361, 418, 451)
+created N13 (151, 666) for (101, 666, 205, 756)
+created N14 (154, 666) for (101, 666, 205, 756)
+created N15 (242, 879) for (192, 879, 296, 969)
+created N16 (669, 879) for (619, 879, 723, 969)
+N1 (np.int64(237), np.int64(432), np.int64(262), np.int64(457)) M1 (101, 427, 205, 517)
+[('M6', (261, 440), (315, 440)), ('M1', (245, 456), (154, 516))]
+reroute failed list index out of range
+N2 (np.int64(56), np.int64(432), np.int64(81), np.int64(457)) M1 (101, 427, 205, 517)
+[('M2', (57, 433), (193, 227)), ('M1', (80, 440), (102, 440)), ('N5', (64, np.int64(456)), (64, np.int64(738)))]
+reroute failed list index out of range
+N4 (np.int64(230), np.int64(431), np.int64(255), np.int64(456)) M2 (192, 214, 296, 304)
+[('M1', (231, 440), (204, 440)), ('M2', (248, 432), (245, 303))]
+reroute failed list index out of range
+N2 (np.int64(56), np.int64(432), np.int64(81), np.int64(457)) M2 (192, 214, 296, 304)
+[('M2', (57, 433), (193, 227)), ('M1', (80, 440), (102, 440)), ('N5', (64, np.int64(456)), (64, np.int64(738)))]
+N1 (np.int64(237), np.int64(432), np.int64(262), np.int64(457)) M6 (314, 361, 418, 451)
+[('M6', (261, 440), (315, 440)), ('M1', (245, 456), (154, 516))]
+reroute failed list index out of range
+N3 (np.int64(237), np.int64(737), np.int64(262), np.int64(762)) M4 (101, 666, 205, 756)
+[('M3', (261, 745), (315, 745)), ('M5', (245, 761), (245, 880)), ('M4', (238, 750), (204, 745))]
+N5 (np.int64(56), np.int64(737), np.int64(81), np.int64(762)) M5 (192, 879, 296, 969)
+[('N2', (64, np.int64(738)), (64, np.int64(456))), ('M4', (80, 745), (102, 745)), ('M5', (57, 761), (193, 959))]
+N3 (np.int64(237), np.int64(737), np.int64(262), np.int64(762)) M5 (192, 879, 296, 969)
+[('M3', (261, 745), (315, 745)), ('M5', (245, 761), (245, 880)), ('M4', (238, 750), (204, 745))]
+reroute failed list index out of range
+N1 (np.int64(237), np.int64(432), np.int64(262), np.int64(457)) M1 (101, 427, 205, 517)
+[('M6', (261, 440), (315, 440)), ('M1', (245, 456), (154, 516))]
+reroute failed list index out of range
+N2 (np.int64(56), np.int64(432), np.int64(81), np.int64(457)) M1 (101, 427, 205, 517)
+[('M2', (57, 433), (193, 227)), ('M1', (80, 440), (102, 440)), ('N5', (64, np.int64(456)), (64, np.int64(738)))]
+reroute failed list index out of range
+N4 (np.int64(230), np.int64(431), np.int64(255), np.int64(456)) M2 (192, 214, 296, 304)
+[('M1', (231, 440), (204, 440)), ('M2', (248, 432), (245, 303))]
+reroute failed list index out of range
+N5 (np.int64(56), np.int64(737), np.int64(81), np.int64(762)) M2 (192, 214, 296, 304)
+[('N2', (64, np.int64(738)), (64, np.int64(456))), ('M4', (80, 745), (102, 745)), ('M5', (57, 761), (193, 959))]
+N1 (np.int64(237), np.int64(432), np.int64(262), np.int64(457)) M6 (314, 361, 418, 451)
+[('M6', (261, 440), (315, 440)), ('M1', (245, 456), (154, 516))]
+reroute failed list index out of range
+N2 (np.int64(56), np.int64(432), np.int64(81), np.int64(457)) M5 (192, 879, 296, 969)
+[('M2', (57, 433), (193, 227)), ('M1', (80, 440), (102, 440)), ('N5', (64, np.int64(456)), (64, np.int64(738)))]
+N3 (np.int64(237), np.int64(737), np.int64(262), np.int64(762)) M5 (192, 879, 296, 969)
+[('M3', (261, 745), (315, 745)), ('M5', (245, 761), (245, 880)), ('M4', (238, 750), (204, 745))]
+reroute failed list index out of range
+N1 (np.int64(237), np.int64(432), np.int64(262), np.int64(457)) M1 (101, 427, 205, 517)
+[('M6', (261, 440), (315, 440)), ('M1', (245, 456), (154, 516))]
+reroute failed list index out of range
+N2 (np.int64(56), np.int64(432), np.int64(81), np.int64(457)) M1 (101, 427, 205, 517)
+[('M2', (57, 433), (193, 227)), ('M1', (80, 440), (102, 440)), ('N5', (64, np.int64(456)), (64, np.int64(738)))]
+reroute failed list index out of range
+N4 (np.int64(230), np.int64(431), np.int64(255), np.int64(456)) M2 (192, 214, 296, 304)
+[('M1', (231, 440), (204, 440)), ('M2', (248, 432), (245, 303))]
+reroute failed list index out of range
+N1 (np.int64(237), np.int64(432), np.int64(262), np.int64(457)) M6 (314, 361, 418, 451)
+[('M6', (261, 440), (315, 440)), ('M1', (245, 456), (154, 516))]
+reroute failed list index out of range
+N3 (np.int64(237), np.int64(737), np.int64(262), np.int64(762)) M5 (192, 879, 296, 969)
+[('M3', (261, 745), (315, 745)), ('M5', (245, 761), (245, 880)), ('M4', (238, 750), (204, 745))]
+reroute failed list index out of range
+{'pmos_0': [[101, 427, 205, 517], [192, 214, 296, 304], [314, 732, 418, 822]], 'pmos_180': [[101, 666, 205, 756], [192, 879, 296, 969], [314, 361, 418, 451], [619, 147, 723, 237], [619, 879, 723, 969]], 'pmos_270': [], 'pmos_90': []}
+*SPICE Netlist for circuit 0
+M1 1 2 6 6 PMOS W=1u L=1u
+M2 4 17 7 7 PMOS W=1u L=1u
+M7 8 18 9 9 PMOS W=1u L=1u
+M3 10 19 11 11 PMOS W=1u L=1u
+M6 12 1 19 19 PMOS W=1u L=1u
+M4 13 20 14 14 PMOS W=1u L=1u
+M5 15 17 3 3 PMOS W=1u L=1u
+M8 16 21 22 22 PMOS W=1u L=1u
+.MODEL PMOS PMOS (LEVEL=1 VTO=1 KP=1.0e-4 LAMBDA=0.02)
+
+.OP
+.END
+
