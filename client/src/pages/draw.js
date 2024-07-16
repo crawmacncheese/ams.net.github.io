@@ -13,6 +13,8 @@ function generateUUID() {
     });
 }
 
+// var stopboundingbox = false;
+
 function Draw() {
 
     const [brush, setBrush] = useState(false);
@@ -34,6 +36,7 @@ function Draw() {
     const [circuitnames, setCircuitnames] = useState([]);
     const [hascircuitlist, setHascircuitlist] = useState(false);
     const [selectedcircuit, setSelectedcircuit] = useState("");
+
 
 
     const canvasRef = useRef(null);
@@ -227,6 +230,7 @@ function Draw() {
             ctx.current.fillText(label.value, label.x, label.y);
         })
         if(showall) {
+            // console.log(bbox)
             Object.entries(bbox).forEach(([key,value]) => {
                 [...value].forEach(rect => {
                     ctx.current.strokeRect(rect[1],rect[0],rect[3]-rect[1],rect[2]-rect[0]);
@@ -729,8 +733,19 @@ function Draw() {
         .then(response => response.blob())
         .then(
             images => {
-            let url = URL.createObjectURL(images);
-            clearall();
+            // let url = URL.createObjectURL(images);
+            setShowall(false);
+            const canvas = document.getElementById("mycanvas");
+            ctx.current.clearRect(0,0,canvas.width,canvas.height);
+            setRect([]);
+            setLine([]);
+            setCounter(0);
+            setLabelel([]);
+            setCoord([]);
+            if(img) {
+                ctx.current.drawImage(img,0,0,img.width,img.height,0,0,img.width,img.height);
+            }
+            setBbox({});
             // var img = new Image();
             // img.onload = function() {
             //     outside.style.height = `${img.height}px`;
@@ -753,6 +768,7 @@ function Draw() {
             .then(
                 bbox => {
                     setBbox(bbox);
+                    console.log(bbox);
                     Object.entries(bbox).forEach(([key,value]) => {
                         [...value].forEach(rect => {
                             ctx.current.strokeRect(rect[1],rect[0],rect[3]-rect[1],rect[2]-rect[0]);
@@ -1203,7 +1219,7 @@ function Draw() {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({imgname: selectedcircuit, imgtype: "0"})
+            body: JSON.stringify({imgname: selectedcircuit, imgtype: selectedcircuit})
         }  
         )
         .then(response => response.blob())
@@ -1227,6 +1243,9 @@ function Draw() {
                 setLabelel([]);
                 setCoord([]);
                 setImg(image);
+                const canvascont = document.getElementById("canvascontainer");
+                canvascont.style.height = `${image.height}px`;
+                canvascont.style.width = `${image.width}px`;
             }
             image.src = url;
         })

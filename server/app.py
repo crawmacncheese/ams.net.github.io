@@ -6,7 +6,10 @@ from flask import Flask, request, send_file, jsonify, make_response
 import subprocess
 from werkzeug.utils import secure_filename
 import json
+import psycopg2
 from flask_cors import CORS, cross_origin
+
+
 
 app = Flask(__name__, static_folder=os.path.abspath("build"))
 CORS(app, supports_credentials=True, resources={r"/*": {"origins": "*"}})
@@ -15,6 +18,33 @@ CORS(app, supports_credentials=True, resources={r"/*": {"origins": "*"}})
     # app.run(host='localhost', port=3000)
 
 # app.run(debug=True, host='0.0.0.0', ssl_context=('fullchain.pem','privkey.pem'))
+conn = None
+try:
+    conn = psycopg2.connect(database="amsnet", user="postgres", password="alvin135", host="localhost", port="5433")
+
+    cur = conn.cursor()
+    cur.execute("""CREATE TABLE IF NOT EXISTS users (
+        username VARCHAR(50) PRIMARY KEY,
+        password VARCHAR(50) NOT NULL
+        );""")
+    
+    cur.execute("""CREATE TABLE IF NOT EXISTS files (
+        component_id VARCHAR(100) PRIMARY KEY,
+        username VARCHAR(50),
+        imagenumber INTEGER NOT NULL,
+        folder VARCHAR(50) NOT NULL,
+        path VARCHAR(255),
+        json JSONB,
+        cir TEXT
+        );""")
+    conn.commit()
+except (Exception, psycopg2.Error) as error:
+    print(f'Error: {error}')
+
+finally:
+    if conn:
+        conn.close()
+        print("Database initialized, connection closed")
 
 @app.route('/', defaults={'path':''})
 @app.route('/<path:path>')
@@ -27,12 +57,12 @@ def serve(path):
     
 @app.route('/instantiate_uuid', methods=['GET'])
 def instantiate_uuid():
-    user_uuid = request.args.get('user_uuid')
+    user_uuid = request.args.get('user_uuid')   
     root_path = f'components/{user_uuid}'
 
     page_bin_path = f'{root_path}/page_bin'
     page_img_path = f'{root_path}/page_img'
-    page_data_path = f'{root_path}/page_data'
+    page_data_path = f'{root_path}/page_data'  
     page_netlist_path = f'{root_path}/page_netlist'
     part_bin_path = f'{root_path}/part_bin'
     part_img_path = 'components/part_img'
@@ -55,14 +85,32 @@ def run_script():
     user_uuid = request.args.get('user_uuid')
     data = request.get_json()
     counter = data["counter"]
+    conn = psycopg2.connect(database="amsnet", user="postgres", password="alvin135", host="localhost", port="5433")
+
+    cur = conn.cursor()
+    cur.execute("INSERT INTO files (username, imagenumber, folder) VALUES (%s, 0, %s)", (user_uuid,"james"))
+    conn.commit()
+    conn.close()
+    
     subprocess.call(["python3", "amsnet_1_1.py", user_uuid, str(counter)])
     return send_file(f"components/{user_uuid}/export_20240510/{counter}/{counter}_cpnt.jpg",mimetype='image/png')
 
 
 @app.route('/get_bbox', methods=['GET'])
 def get_bbox():
+    
     user_uuid = request.args.get('user_uuid')
     imgname = request.args.get('imgname')
+    component_id = f"{imgname}_bbox"
+    # conn = psycopg2.connect(database="amsnet", user="postgres", password="alvin135", host="localhost", port="5433")
+
+    # cur = conn.cursor()
+    # cur.execute("SELECT json FROM files WHERE username = %s AND imagenumber = %s AND component_id = %s;", (user_uuid, imgname, component_id))
+    # bbox = cur.fetchone()
+    
+    # conn.commit()
+    # conn.close()
+    # return send_file(bbox[0], mimetype='application/json')
     return send_file(f"components/{user_uuid}/export_20240510/{imgname}/{imgname}_bbox.json",mimetype='application/json')
 
 @app.route('/refresh_json', methods=['GET'])
@@ -151,6 +199,14 @@ def get_img():
     data = request.get_json()
     imagename = data["imgname"]
     imagetype = data["imgtype"]
+    conn = psycopg2.connect(database="amsnet", user="postgres", password="alvin135", host="localhost", port="5433")
+
+    cur = conn.cursor()
+    cur.execute("SELECT username FROM files WHERE username = %s", (user_uuid,))
+    type = cur.fetchone()
+    print(type)
+    conn.commit()
+    conn.close()
     try:
         # file_path = os.path.join(f'components/{user_uuid}/export_20240510/0', '0.jpg')
         file_path = os.path.join(f'components/{user_uuid}/export_20240510/{imagename}', f'{imagetype}.jpg')

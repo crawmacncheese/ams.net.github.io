@@ -1,0 +1,9 @@
+*SPICE Netlist for circuit 0
+M1 1 5 5 5 PMOS W=1u L=1u
+M2 5 5 2 2 PMOS W=1u L=1u
+M3 3 6 4 4 PMOS W=1u L=1u
+.MODEL PMOS PMOS (LEVEL=1 VTO=1 KP=1.0e-4 LAMBDA=0.02)
+
+.OP
+.END
+
